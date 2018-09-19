@@ -1,7 +1,19 @@
 from django.shortcuts import render
+from django.template import loader
+from django.http import HttpResponse
+
+from .models import Album
 
 mhs_name = 'Rafif Iqbal Shaputra'
 
 def index(request):
-    response ={'name': mhs_name}
-    return render(request, 'index_lab1.html', response)
+    all_albums = Album.objects.all()
+    template = loader.get_template('music/index.html')
+    context = {
+        'all_albums' : all_albums,
+
+    }
+    return HttpResponse(template.render(context,request))
+
+def detail(request,album_id):
+    return HttpResponse("<h2>Details for Album id " + str(album_id) + "</h2>")

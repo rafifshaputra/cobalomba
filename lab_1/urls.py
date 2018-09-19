@@ -1,6 +1,10 @@
 from django.conf.urls import url
-from .views import index
+from . import views
 #url for app
 urlpatterns = [
-    url(r'^$', index, name='index'),
+    # /music/
+    url(r'^$', views.index, name='index'),
+
+    #/music/71
+    url(r'^(?P<album_id>[0-9]+)$', views.detail, name='detail'),
 ]
