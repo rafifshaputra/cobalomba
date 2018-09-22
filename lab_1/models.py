@@ -7,6 +7,7 @@ class Album(models.Model):
     jenis_lomba = models.CharField(max_length=500)
     batas_pendaftaran = models.CharField(max_length=100)
     poster_lomba = models.CharField(max_length=1000)
+    publisher_lomba=models.CharField(max_length=500 ,default="")
 
     def get_absolute_url(self):
         return reverse('lab-1:detail', kwargs={'pk': self.pk})

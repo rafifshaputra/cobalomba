@@ -2,12 +2,60 @@
 
 {% block title %} Album Detail {% endblock %}
 {% block body %}
+<head>
+  <style>
+  img{
+    width:320px;
+    height:500px;
+    margin-left:500px;
+  }
 
-<img src="{{album.poster_lomba}}">
+  @media screen and (min-width: 400px) and (max-width: 700px){
 
+  img{
+    width:320px;
+    height:500px;
+  }
+
+  .image{
+    margin-left:30px;
+  }
+  .text{
+    padding-left:32px;
+  }
+
+  }
+
+  @media screen and (min-width: 360px) and (max-width: 700px) {
+    img{
+      width:300px;
+      height:480px;
+      margin-left:20px;
+    }
+
+    .image{
+      padding-left:15px;
+    }
+    .text{
+      margin-left:95px;
+    }
+
+
+  }
+
+
+  </style>
+
+</head>
+<div class="image">
+  <img src="{{album.poster_lomba}}">
+</div>
+
+<div class="text">
 <h1> {{album.nama_lomba}} </h1>
 <h3> {{album.jenis_lomba}} </h3>
-
+</p>
+</div>
 {% if error_message %}
   <p><strong> {{ error_message }}</strong</p>
 {% endif %}
