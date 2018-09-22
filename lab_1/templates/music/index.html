@@ -7,6 +7,11 @@
 
 <head>
 <style>
+
+body{
+  padding-bottom:10px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -22,7 +27,7 @@
 .column {
   float: left;
   width: 30%;
-  padding: 5px 5px;
+  margin-right:25px;
 }
 
 /* Remove extra left and right margins, due to padding */
@@ -32,12 +37,13 @@
   border-radius:10px;
   width:1000px;
   margin: 0 -5px;
-  margin-left:150px;
+  margin-left:300px;
   background-color:white;
   margin-right:30px;
-  padding-left:80px;
+  margin-top:30px;
+  padding-left:50px;
   padding-top:10px;
-  padding-bottom:10px;
+  padding-bottom:25px;
 
 }
 
@@ -54,6 +60,7 @@
   text-align: center;
   background-color: #f1f1f1;
   width:280px;
+  padding-bottom: 10px;
 }
 
 @media screen and (min-width: 360px) and (max-width: 700px) {
@@ -120,13 +127,17 @@
 
 <div class="row">
   <h3>Semua Lomba</h3>
-  <hr>
+  <hr style="width:98%;height:10px;border-top:1px solid red" />
   {% for album in all_albums %}
   <div class="column">
     <div class="card">
-      <img src="{{ album.album_logo}}" class="img">
-      <p><a href="{% url 'lab-1:detail' album.id %}"> {{album.album_title}}</a></p>
-      <p>Some text</p>
+      <img src="{{ album.poster_lomba}}" class="img">
+      <h3><a href="{% url 'lab-1:detail' album.id %}"> {{album.nama_lomba}}</a></h3>
+      <hr style="width:75%;height:10px;border-top:1px solid blue" />
+      <p align="left">
+        <h5><b> Kategori:</b> {{ album.jenis_lomba}}</h5>
+        <h5> <b>Batas Pendaftaran:</b> {{ album.batas_pendaftaran}}</h5>
+      </p>
     </div>
   </div>
   {% endfor %}

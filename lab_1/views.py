@@ -17,11 +17,11 @@ class DetailView(generic.DetailView):
 class AlbumCreate(CreateView):
     model =Album
     template_name= 'music/album_form.html'
-    fields=['artist', 'album_title', 'genre', 'album_logo']
+    fields=['nama_lomba', 'jenis_lomba', 'batas_pendaftaran', 'poster_lomba']
 
 class AlbumUpdate(UpdateView):
     model =Album
-    fields=['artist', 'album_title', 'genre', 'album_logo']
+    fields=['nama_lomba', 'jenis_lomba', 'batas_pendaftaran', 'poster_lomba']
 
 class AlbumDelete(DeleteView):
     model =Album

@@ -3,10 +3,10 @@
 {% block title %} Album Detail {% endblock %}
 {% block body %}
 
-<img src="{{album.album_logo}}">
+<img src="{{album.poster_lomba}}">
 
-<h1> {{album.album_title}} </h1>
-<h3> {{album.artist}} </h3>
+<h1> {{album.nama_lomba}} </h1>
+<h3> {{album.jenis_lomba}} </h3>
 
 {% if error_message %}
   <p><strong> {{ error_message }}</strong</p>

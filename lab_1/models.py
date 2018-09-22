@@ -3,16 +3,16 @@ from django.core.urlresolvers import reverse
 
 # Red Pk 1
 class Album(models.Model):
-    artist = models.CharField(max_length=250)
-    album_title = models.CharField(max_length=500)
-    genre = models.CharField(max_length=100)
-    album_logo = models.CharField(max_length=1000)
+    nama_lomba = models.CharField(max_length=250)
+    jenis_lomba = models.CharField(max_length=500)
+    batas_pendaftaran = models.CharField(max_length=100)
+    poster_lomba = models.CharField(max_length=1000)
 
     def get_absolute_url(self):
         return reverse('lab-1:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return self.album_title + ' - ' + self.artist
+        return self.nama_lomba + ' - ' + self.jenis_lomba
 
 
 
