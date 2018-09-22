@@ -18,7 +18,7 @@ body{
 
 .img{
   width:280px;
-  height:300px;
+  height:250px;
 
 }
 
@@ -28,7 +28,7 @@ body{
   float: left;
   width: 31%;
   margin-right:20px;
-  margin-top:10px;
+  margin-top:15px;
 }
 
 /* Remove extra left and right margins, due to padding */
@@ -38,12 +38,13 @@ body{
   border-radius:10px;
   width:1000px;
   margin: 0 -5px;
-  margin-left:300px;
+
   background-color:white;
-  margin-right:30px;
-  margin-top:30px;
+  margin-right:120px;
+
+  margin-left:50px;
   padding-left:50px;
-  padding-top:10px;
+
   padding-bottom:25px;
 
 }
@@ -61,7 +62,7 @@ body{
   text-align: center;
   background-color: #f1f1f1;
   width:280px;
-  padding-bottom: 10px;
+
 }
 
 @media screen and (min-width: 360px) and (max-width: 700px) {
@@ -85,15 +86,30 @@ body{
 
 
 .img:hover {
-
     -ms-transform: scale(1.5); /* IE 9 */
     -webkit-transform: scale(1.5); /* Safari 3-8 */
     transform: scale(1.5);
 
   }
+
+ .searchbox{
+   margin-left:45px;
+ }
 }
 
 @media screen and (min-width: 400px) and (max-width: 700px){
+  .left{
+    display:none;
+
+  }
+
+  .right {
+    width:100%;
+    flex: 0%;
+    padding: 0px;
+
+  }
+
   .row {
     width:390px;
     background-color:white;
@@ -102,8 +118,9 @@ body{
     padding-left:30px;
     padding-top:0px;
     padding-bottom:0px;
-    padding-right: 10px;
+    padding-right: 50px;
   }
+
   .column {
     width: 100%;
     display: block;
@@ -118,34 +135,136 @@ body{
     width:320px;
   }
 }
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create a column layout with Flexbox */
+.wor {
+  display: flex;
+}
+
+/* Left column (menu) */
+.left {
+  flex: 50%;
+  padding: 15px 0;
+  margin-left:10px;
+  margin-top:35px;
+
+
+}
+
+.left h2 {
+  padding-left: 8px;
+}
+
+/* Right column (page content) */
+.right {
+  flex: 50%;
+  padding: 15px;
+}
+
+/* Style the search box */
+#mySearch {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border:1px solid #ddd;
+}
+
+/* Style the navigation menu inside the left column */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myMenu li a {
+  backgrxound-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myMenu li a:hover {
+  background-color: #eee;
+}
 </style>
 
 </head>
 
 <body>
-
-
 {% if all_albums %}
 
-<div class="row">
-  <h3>Semua Lomba</h3>
-  <hr style="width:98%;height:10px;border-top:1px solid red" />
-  {% for album in all_albums %}
+<div class="wor">
+  <div class="left" style="background-color:#bbb;">
+    <h2>Menu</h2>
+    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+    <ul id="myMenu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+      <li><a href="#">PHP</a></li>
+      <li><a href="#">Python</a></li>
+      <li><a href="#">jQuery</a></li>
+      <li><a href="#">SQL</a></li>
+      <li><a href="#">Bootstrap</a></li>
+      <li><a href="#">Node.js</a></li>
+    </ul>
+  </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="{{ album.poster_lomba}}" class="img">
-      <h3><a href="{% url 'lab-1:detail' album.id %}">{{album.jenis_lomba}}<br>{{album.nama_lomba}}</a></h3>
-      <hr style="width:75%;height:10px;border-top:1px solid blue" />
-      <p align="left">
-        <h5><b> Publisher:</b> {{ album.publisher_lomba}}</h5>
-        <h5><b> Kategori:</b> {{ album.jenis_lomba}}</h5>
-        <h5> <b>Batas Pendaftaran:</b> {{ album.batas_pendaftaran}}</h5>
-      </p>
+  <div class="right" style="background-color:white;">
+    <div class="row">
+
+      <br>
+      <h3>Semua Lomba</h3>
+      <hr style="width:98%;height:10px;border-top:1px solid red" />
+      {% for album in all_albums %}
+
+      <div class="column">
+        <div class="card">
+          <img src="{{ album.poster_lomba}}" class="img">
+          <h3><a href="{% url 'lab-1:detail' album.id %}">{{album.jenis_lomba}}<br>{{album.nama_lomba}}</a></h3>
+          <hr style="width:75%;height:10px;border-top:1px solid blue" />
+          <p align="left">
+            <h5><b> Publisher:</b> {{ album.publisher_lomba}}</h5>
+            <h5><b> Kategori:</b> {{ album.jenis_lomba}}</h5>
+            <h5> <b>Batas Pendaftaran:</b> {{ album.batas_pendaftaran}}</h5>
+          </p>
+          <div class="btn-group btn-group-justified">
+              <div class="btn-group">
+                  <a href="{% url 'lab-1:detail' album.id %}">
+                  <button type="button" class="btn btn-primary">Detail</button>
+                </a>
+              </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
   </div>
-  {% endfor %}
 </div>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("mySearch");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myMenu");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
 
 </body>
 
