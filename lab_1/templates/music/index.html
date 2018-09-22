@@ -65,7 +65,23 @@ body{
 
 }
 
+.searchbox{
+  display:none;
+}
+
 @media screen and (min-width: 360px) and (max-width: 700px) {
+  .searchbox{
+    display:block;
+    padding-left:35px;
+
+  }
+
+  .cari{
+    border-radius: 5px;
+    height:40px;
+    width:300px;
+  }
+
   .left{
     display:none;
 
@@ -108,12 +124,22 @@ body{
 
   }
 
- .searchbox{
-   margin-left:45px;
- }
+
 }
 
 @media screen and (min-width: 400px) and (max-width: 700px){
+  .searchbox{
+    display:block;
+    padding-left:45px;
+
+  }
+
+  .cari{
+    border-radius: 5px;
+    height:40px;
+    width:300px;
+  }
+
   .left{
     display:none;
 
@@ -212,27 +238,34 @@ body{
 #myMenu li a:hover {
   background-color: #eee;
 }
+
+
 </style>
 
 </head>
 
 <body>
 {% if all_albums %}
+<div class="searchbox">
+  <h3> Cari Lomba </h3>
+
+  <input type="text" class="cari" placeholder="Business Case....">
+</div>
 
 <div class="wor">
   <div class="left" style="background-color:#bbb;">
-    <h2>Menu</h2>
-    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+    <h2 style="background-color:red;padding:5px;margin:5px;color:white;">Kategori Lomba</h2>
+
     <ul id="myMenu">
-      <li><a href="#">HTML</a></li>
-      <li><a href="#">CSS</a></li>
-      <li><a href="#">JavaScript</a></li>
-      <li><a href="#">PHP</a></li>
-      <li><a href="#">Python</a></li>
-      <li><a href="#">jQuery</a></li>
-      <li><a href="#">SQL</a></li>
-      <li><a href="#">Bootstrap</a></li>
-      <li><a href="#">Node.js</a></li>
+      <li><a href="#">Business Plan</a></li>
+      <li><a href="#">Business Case</a></li>
+      <li><a href="#">Website Development</a></li>
+      <li><a href="#">App Development</a></li>
+      <li><a href="#">Desain</a></li>
+      <li><a href="#">Debat</a></li>
+      <li><a href="#">Essay</a></li>
+      <li><a href="#">Karya Tulis Ilmiah</a></li>
+
     </ul>
   </div>
 
