@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 import lab_1.urls as lab_1
 import mydiary.urls as mydiary
 
@@ -24,5 +26,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^lab-1/', include(lab_1,namespace='lab-1')),
     url(r'^mydiary/', include(mydiary,namespace='mydiary')),
-    
+
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

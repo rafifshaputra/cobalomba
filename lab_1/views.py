@@ -21,6 +21,7 @@ class AlbumCreate(CreateView):
 
 class AlbumUpdate(UpdateView):
     model =Album
+    template_name= 'music/album_form.html'
     fields=['publisher_lomba','nama_lomba', 'jenis_lomba', 'batas_pendaftaran', 'poster_lomba']
 
 class AlbumDelete(DeleteView):

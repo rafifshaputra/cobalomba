@@ -18,7 +18,7 @@ urlpatterns = [
     #/lab-1/album/2/
     url(r'^album/(?P<pk>[0-9]+)/$', views.AlbumUpdate.as_view(), name='album-update'),
 
-    #/lab-1/album/2/
+    #/lab-1/album/2/delete/
     url(r'^album/(?P<pk>[0-9]+)/delete/$', views.AlbumDelete.as_view(), name='album-delete'),
 
 
