@@ -29,6 +29,7 @@
 
 
 .row{
+  border-radius:10px;
   width:1000px;
   margin: 0 -5px;
   margin-left:150px;
@@ -55,11 +56,7 @@
   width:280px;
 }
 
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-
-
-
+@media screen and (min-width: 360px) and (max-width: 700px) {
   .row {
     width:340px;
     background-color:white;
@@ -83,19 +80,47 @@
     -ms-transform: scale(1.5); /* IE 9 */
     -webkit-transform: scale(1.5); /* Safari 3-8 */
     transform: scale(1.5);
-}
+
+  }
 }
 
+@media screen and (min-width: 400px) and (max-width: 700px){
+  .row {
+    width:390px;
+    background-color:white;
+    margin-right:0px;
+    margin-left:12px;
+    padding-left:30px;
+    padding-top:0px;
+    padding-bottom:0px;
+    padding-right: 10px;
+  }
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .img{
+    width:320px;
+  }
+
+  .card{
+    width:320px;
+  }
+}
 </style>
 
 </head>
 
 <body>
 
+
 {% if all_albums %}
 
 <div class="row">
-  <h3>Semua Lomba</h3><br>
+  <h3>Semua Lomba</h3>
+  <hr>
   {% for album in all_albums %}
   <div class="column">
     <div class="card">
