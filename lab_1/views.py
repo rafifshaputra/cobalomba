@@ -1,18 +1,28 @@
-from django.shortcuts import render
-from django.template import loader
-from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 from .models import Album
 
-mhs_name = 'Rafif Iqbal Shaputra'
+class IndexView(generic.ListView):
+    template_name='music/index.html'
+    context_object_name = 'all_albums'
 
-def index(request):
-    all_albums = Album.objects.all()
-    context = {
-        'all_albums' : all_albums,
-    }
-    return render(request, 'music/index.html', context)
+    def get_queryset(Self):
+        return Album.objects.all()
 
-def detail(request,album_id):
-    return HttpResponse("<h2>Details for Album id " + str(album_id) + "</h2>")
+class DetailView(generic.DetailView):
+    model = Album
+    template_name= 'music/detail.html'
+
+class AlbumCreate(CreateView):
+    model =Album
+    template_name= 'music/album_form.html'
+    fields=['artist', 'album_title', 'genre', 'album_logo']
+
+class AlbumUpdate(UpdateView):
+    model =Album
+    fields=['artist', 'album_title', 'genre', 'album_logo']
+
+class AlbumDelete(DeleteView):
+    model =Album
+    success_url=reverse_lazy('lab-1:index')

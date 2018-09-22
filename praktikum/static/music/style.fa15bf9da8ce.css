@@ -1,0 +1,89 @@
+body{
+  background: white url("images/background.4b10d6a28733.png")
+}
+
+.navbar{
+    border-radius:0;
+}
+
+.navbar-brand{
+  font-family:'Satisfy', cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.img{
+  width:280px;
+  height:220px;
+
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 30%;
+  padding: 5px 5px;
+}
+
+/* Remove extra left and right margins, due to padding */
+
+
+.row{
+  width:1000px;
+  margin: 0 -5px;
+  margin-left:150px;
+  background-color:white;
+  margin-right:30px;
+  padding-left:80px;
+  padding-top:10px;
+  padding-bottom:10px;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  text-align: center;
+  background-color: #f1f1f1;
+  width:280px;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+
+  body{
+
+  }
+
+  .row {
+    width:340px;
+    background-color:white;
+    margin-right:0px;
+    margin-left:40px;
+    padding-left:30px;
+    padding-top:0px;
+    padding-bottom:0px;
+    padding-right: 10px;
+  }
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+
+  }
+}
+
+/* Style the counter cards */
